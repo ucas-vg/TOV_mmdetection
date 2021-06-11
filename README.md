@@ -41,6 +41,10 @@ For more detail, please refer [mmdetection install](docs/get_started.md) to inst
 
 ## Quickly Start
 
+to train baseline of TinyPerson, download the mini_annotation of all annotation is enough, 
+which can be download in [Baidu Yun(password:pmcq) ](https://pan.baidu.com/s/1kkugS6y2vT4IrmEV_2wtmQ)/
+[Google Driver](https://drive.google.com/open?id=1KrH9uEC9q4RdKJz-k34Q6v5hRewU5HOw)tiny_set/annotations
+
 ```
 mkdir data
 ln -s $Path of TinyPerson$ data/tiny_set
