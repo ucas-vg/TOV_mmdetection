@@ -46,13 +46,13 @@ For more detail, please refer [mmdetection install](docs/get_started.md) to inst
 ## Quickly Start
 
 to train baseline of TinyPerson, download the mini_annotation of all annotation is enough, 
-which can be downloaded as tiny_set/annotations/mini_annotations.tar.gz in [Baidu Yun(password:pmcq) ](https://pan.baidu.com/s/1kkugS6y2vT4IrmEV_2wtmQ)/
+which can be downloaded as tiny_set/mini_annotations.tar.gz in [Baidu Yun(password:pmcq) ](https://pan.baidu.com/s/1kkugS6y2vT4IrmEV_2wtmQ)/
 [Google Driver](https://drive.google.com/open?id=1KrH9uEC9q4RdKJz-k34Q6v5hRewU5HOw).
 
 ```
 mkdir data
 ln -s $Path of TinyPerson$ data/tiny_set
-tar -zxvf data/tiny_set/annotations/mini_annotations.tar.gz && mv mini_annotations data/tiny_set/annotations/
+tar -zxvf data/tiny_set/mini_annotations.tar.gz && mv mini_annotations data/tiny_set/
 
 # run experiment, for other config run, see exp/Baseline_TinyPerson.sh
 export GPU=4 && LR=02 && CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=10000 tools/dist_train.sh configs2/TinyPerson/base/faster_rcnn_r50_fpn_1x_TinyPerson640.py $GPU \
