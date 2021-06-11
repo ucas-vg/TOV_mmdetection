@@ -60,8 +60,11 @@ All train and test on 2080Ti,
 for Faster-FPN, we think the gain compare to TinyBenchmark may come 
 from the cut and merge during inference running time. 
 
+performance 43.80(2) where 2 means the performance is mean result of 
+running such setting for 2 time.
+
 detector | num_gpu | $AP_{50}^{tiny}$| script
 --- | --- | ---| ---
-Faster-FPN | 4 | 48.63 | exp/Baseline_TinyPerson.sh:exp1.1
-RetainaNet | 1 | | exp/Baseline_TinyPerson.sh:exp2.1
-RetainaNet | 4 | | exp/Baseline_TinyPerson.sh:exp2.2(clip grad)
+Faster-FPN | 4 | 48.63(1) | exp/Baseline_TinyPerson.sh:exp1.1
+RetainaNet | 1 | 43.80(2) | exp/Baseline_TinyPerson.sh:exp2.1
+RetainaNet | 4 | 44.94(1) | exp/Baseline_TinyPerson.sh:exp2.2(clip grad)
