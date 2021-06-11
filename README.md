@@ -32,7 +32,10 @@ conda install -c pytorch pytorch=1.5.0 cudatoolkit=10.2 torchvision -y  # (recom
 # install the latest mmcv
 pip install mmcv-full --user
 # install mmdetection
+```
 
+```
+cd TOV_mmdetection
 pip uninstall pycocotools
 pip install -r requirements/build.txt
 pip install -v -e . --user  # or "python setup.py develop"
