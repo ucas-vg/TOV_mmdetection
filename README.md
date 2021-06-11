@@ -28,6 +28,7 @@ conda activate open-mmlab
 conda install -c pytorch pytorch=1.5.0 cudatoolkit=10.2 torchvision -y  # (recommand)
 # install latest pytorch prebuilt with the default prebuilt CUDA version (usually the latest)
 # conda install -c pytorch pytorch torchvision -y
+
 # install the latest mmcv
 pip install mmcv-full --user
 # install mmdetection
