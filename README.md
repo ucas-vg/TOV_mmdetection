@@ -75,5 +75,5 @@ running such setting for 2 time.
 detector | num_gpu | $AP_{50}^{tiny}$| script
 --- | --- | ---| ---
 Faster-FPN | 4 | 48.63(1) | exp/Baseline_TinyPerson.sh:exp1.1
-RetainaNet | 1 | 43.80(2) | exp/Baseline_TinyPerson.sh:exp2.1
-RetainaNet | 4 | 44.94(1) | exp/Baseline_TinyPerson.sh:exp2.2(clip grad)
+Adap RetainaNet | 1 | 43.80(2) | exp/Baseline_TinyPerson.sh:exp2.1
+Adap RetainaNet | 4 | 44.94(1) | exp/Baseline_TinyPerson.sh:exp2.2(clip grad)
