@@ -67,7 +67,7 @@ All train and test on 2080Ti,
 - python3.7, cudatookit=10.2, pytorch=1.5, torchvision=0.6
 
 for Faster-FPN, we think the gain compare to TinyBenchmark may come 
-from the cut and merge during inference running time. 
+from the cut and merge during inference running time and multi-gpu training.
 
 performance 43.80(2) where 2 means the performance is mean result of 
 running such setting for 2 time.
