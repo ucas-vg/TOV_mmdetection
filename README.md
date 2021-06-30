@@ -54,6 +54,13 @@ tar -zxvf data/tiny_set/mini_annotations.tar.gz && mv mini_annotations data/tiny
 ln -s ${Path_Of_COCO} data/coco
 ```
 
+
+#### download project
+
+```shell script
+git clone git@github.com:ucas-vg/TOV_mmdetection.git --recursive
+```
+
 # Experiment
 ## TinyPerson
 
