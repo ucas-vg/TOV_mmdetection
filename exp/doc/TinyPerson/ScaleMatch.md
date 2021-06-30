@@ -61,6 +61,6 @@ Faster-FPN | SM | 49.53 | exp/Baseline_TinyPerson.sh:exp4.1 | 18.5 | 4x2/0.01
 Faster-FPN | MSM | 49.39 | exp/Baseline_TinyPerson.sh:exp4.2 | 12.1 | 4x2/0.01
 --| --| --
 Adap RetainaNet-c | - | 43.66 | exp/Baseline_TinyPerson.sh:exp2.3 | - | -
-Adap RetainaNet-c | SM | dj | exp/Baseline_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
+Adap RetainaNet-c | SM | 50.07 | exp/Baseline_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
 Adap RetainaNet-c | MSM | 48.39 | exp/Baseline_TinyPerson.sh:exp5.2 | 12.9 | 4x2/0.01
 
