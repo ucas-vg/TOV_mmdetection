@@ -38,19 +38,19 @@ data = dict(
     workers_per_gpu=1,
     train=dict(
             type=dataset_type,
-            ann_file=data_root + 'coco_fmt_annotations/VisDrone2018-DET-train-person.json',
+            ann_file=data_root + 'coco_fmt_annotations/corner/VisDrone2018-DET-train-person-w640h640ow100oh100.json',
             img_prefix=data_root + 'VisDrone2018-DET-train/images',
             pipeline=train_pipeline,
             # add here
-            corner_kwargs=dict(
-                max_tile_size=(640, 640),
-                tile_overlap=(100, 100),
-                # bbox's area in sub image >= area_keep_ratio will keep
-                area_keep_ratio=0.3,
-                # cliped bbox's size and area > th will keep
-                size_th=2,
-                area_th=4
-            ),
+            # corner_kwargs=dict(
+            #     max_tile_size=(640, 640),
+            #     tile_overlap=(100, 100),
+            #     # bbox's area in sub image >= area_keep_ratio will keep
+            #     area_keep_ratio=0.3,
+            #     # cliped bbox's size and area > th will keep
+            #     size_th=2,
+            #     area_th=4
+            # ),
             # train_ignore_as_bg=False,
         ),
     val=dict(
@@ -64,39 +64,41 @@ data = dict(
         img_prefix=data_root + 'VisDrone2018-DET-val/images',
         pipeline=test_pipeline))
 
+check = dict(stop_while_nan=True)  # add by hui
+
 # origin coco eval
 # evaluation = dict(interval=1, metric='bbox')
 
 # tiny bbox eval with IOD
-# evaluation = dict(
-#     interval=1, metric='bbox',
-#     iou_thrs=[0.25, 0.5, 0.75],  # set None mean use 0.5:1.0::0.05
-#     proposal_nums=[300],
-#     cocofmt_kwargs=dict(
-#         ignore_uncertain=True,
-#         use_ignore_attr=True,
-#         use_iod_for_ignore=True,
-#         iod_th_of_iou_f="lambda iou: (2*iou)/(1+iou)",
-#         cocofmt_param=dict(
-#             evaluate_standard='tiny',  # or 'coco'
-#             # iouThrs=[0.25, 0.5, 0.75],  # set this same as set evaluation.iou_thrs
-#             # maxDets=[200],              # set this same as set evaluation.proposal_nums
-#         )
-#     )
-# )
-
-# location bbox eval
 evaluation = dict(
     interval=1, metric='bbox',
-    use_location_metric=True,
-    location_kwargs=dict(
-        matcher_kwargs=dict(multi_match_not_false_alarm=False),
-        location_param=dict(
-            matchThs=[0.5, 1.0, 2.0],
-            recThrs='np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)',
-            maxDets=[300],
-            # recThrs='np.linspace(.90, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)',
-            # maxDets=[1000],
+    iou_thrs=[0.25, 0.5, 0.75],  # set None mean use 0.5:1.0::0.05
+    proposal_nums=[300],
+    cocofmt_kwargs=dict(
+        ignore_uncertain=True,
+        use_ignore_attr=True,
+        use_iod_for_ignore=True,
+        iod_th_of_iou_f="lambda iou: (2*iou)/(1+iou)",
+        cocofmt_param=dict(
+            evaluate_standard='tiny',  # or 'coco'
+            # iouThrs=[0.25, 0.5, 0.75],  # set this same as set evaluation.iou_thrs
+            # maxDets=[200],              # set this same as set evaluation.proposal_nums
         )
     )
 )
+
+# location bbox eval
+# evaluation = dict(
+#     interval=1, metric='bbox',
+#     use_location_metric=True,
+#     location_kwargs=dict(
+#         matcher_kwargs=dict(multi_match_not_false_alarm=False),
+#         location_param=dict(
+#             matchThs=[0.5, 1.0, 2.0],
+#             recThrs='np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)',
+#             maxDets=[300],
+#             # recThrs='np.linspace(.90, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)',
+#             # maxDets=[1000],
+#         )
+#     )
+# )

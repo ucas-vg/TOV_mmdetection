@@ -1,5 +1,5 @@
 dataset_type = 'CocoFmtDataset'
-data_root = 'data/tiny_set/'
+data_root = 'data/visDrone/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -16,12 +16,13 @@ train_pipeline = [
 test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
-        # type='MultiScaleFlipAug',
+        type='MultiScaleFlipAug',
         # img_scale=(1333, 800),
-        type='CroppedTilesFlipAug',
-        tile_shape=(640, 512),  # sub image size by cropped
-        tile_overlap=(100, 100),
+        # type='CroppedTilesFlipAug',
+        # tile_shape=(640, 640),  # sub image size by cropped
+        # tile_overlap=(100, 100),
         scale_factor=[1.0],
+
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -37,41 +38,47 @@ data = dict(
     workers_per_gpu=1,
     train=dict(
             type=dataset_type,
-            # ann_file=data_root + 'erase_with_uncertain_dataset/annotations/corner/task/tiny_set_train_sw640_sh512_all.json',
-            ann_file=data_root + 'mini_annotations/tiny_set_train_sw640_sh512_all_erase.json',  # same as last line
-            img_prefix=data_root + 'erase_with_uncertain_dataset/train/',
+            ann_file=data_root + 'coco_fmt_annotations/corner/VisDrone2018-DET-train-person-w640h640ow100oh100.json',
+            img_prefix=data_root + 'VisDrone2018-DET-train/images',
             pipeline=train_pipeline,
+            # add here
+            # corner_kwargs=dict(
+            #     max_tile_size=(640, 640),
+            #     tile_overlap=(100, 100),
+            #     # bbox's area in sub image >= area_keep_ratio will keep
+            #     area_keep_ratio=0.3,
+            #     # cliped bbox's size and area > th will keep
+            #     size_th=2,
+            #     area_th=4
+            # ),
             # train_ignore_as_bg=False,
-    ),
+        ),
     val=dict(
         type=dataset_type,
-        # ann_file=data_root + 'annotations/corner/task/tiny_set_test_sw640_sh512_all.json',
-        ann_file=data_root + 'mini_annotations/tiny_set_test_all.json',
-        img_prefix=data_root + 'test/',
+        ann_file=data_root + 'coco_fmt_annotations/VisDrone2018-DET-val-person.json',
+        img_prefix=data_root + 'VisDrone2018-DET-val/images',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        # ann_file=data_root + 'annotations/corner/task/tiny_set_test_sw640_sh512_all.json',
-        ann_file=data_root + 'mini_annotations/tiny_set_test_all.json',
-        img_prefix=data_root + 'test/',
-        pipeline=test_pipeline)
-)
+        ann_file=data_root + 'coco_fmt_annotations/VisDrone2018-DET-val-person.json',
+        img_prefix=data_root + 'VisDrone2018-DET-val/images',
+        pipeline=test_pipeline))
 
 check = dict(stop_while_nan=True)  # add by hui
 
 # origin coco eval
-# evaluation = dict(interval=4, metric='bbox')
+# evaluation = dict(interval=1, metric='bbox')
 
 # tiny bbox eval with IOD
 evaluation = dict(
-    interval=4, metric='bbox',
+    interval=1, metric='bbox',
     iou_thrs=[0.25, 0.5, 0.75],  # set None mean use 0.5:1.0::0.05
-    proposal_nums=[200],
+    proposal_nums=[300],
     cocofmt_kwargs=dict(
         ignore_uncertain=True,
         use_ignore_attr=True,
         use_iod_for_ignore=True,
-        iod_th_of_iou_f="lambda iou: iou",  #"lambda iou: (2*iou)/(1+iou)",
+        iod_th_of_iou_f="lambda iou: (2*iou)/(1+iou)",
         cocofmt_param=dict(
             evaluate_standard='tiny',  # or 'coco'
             # iouThrs=[0.25, 0.5, 0.75],  # set this same as set evaluation.iou_thrs
@@ -82,7 +89,7 @@ evaluation = dict(
 
 # location bbox eval
 # evaluation = dict(
-#     interval=4, metric='bbox',
+#     interval=1, metric='bbox',
 #     use_location_metric=True,
 #     location_kwargs=dict(
 #         matcher_kwargs=dict(multi_match_not_false_alarm=False),

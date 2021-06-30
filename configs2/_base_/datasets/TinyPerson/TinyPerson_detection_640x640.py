@@ -70,6 +70,8 @@ data = dict(
         img_prefix=data_root + 'test/',
         pipeline=test_pipeline))
 
+check = dict(stop_while_nan=True)  # add by hui
+
 # origin coco eval
 # evaluation = dict(interval=4, metric='bbox')
 
