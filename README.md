@@ -60,7 +60,7 @@ export GPU=4 && LR=02 && CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=10000 tools/dist_trai
   --cfg-options optimizer.lr=0.${LR}
 ```
 
-#### performance
+### performance
 
 All train and test on 2080Ti, 
 - CUDA10.1/10.2
@@ -74,6 +74,8 @@ running such setting for 2 time.
 
 detector | num_gpu | $AP_{50}^{tiny}$| script
 --- | --- | ---| ---
-Faster-FPN | 4 | 48.63(1) | exp/Baseline_TinyPerson.sh:exp1.1
-Adap RetainaNet | 1 | 43.80(2) | exp/Baseline_TinyPerson.sh:exp2.1
-Adap RetainaNet | 4 | 44.94(1) | exp/Baseline_TinyPerson.sh:exp2.2(clip grad)
+Faster-FPN | 4 | 48.63(1) | exp/sh/Baseline_TinyPerson.sh:exp1.1
+Adap RetainaNet | 1 | 43.80(2) | exp/sh/Baseline_TinyPerson.sh:exp2.1
+Adap RetainaNet | 4 | 44.94(1) | exp/sh/Baseline_TinyPerson.sh:exp2.2(clip grad)
+
+
