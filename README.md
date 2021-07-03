@@ -28,9 +28,10 @@ pip install mmcv-full --user
 conda install scikit-image
 ```
 
-[note]: if your need to modified from origin mmdetection code, see [here](exp/doc/code_modify.md), otherwise do not need any other modified.
-
 #### download and project setting
+
+
+[note]: if your need to modified from origin mmdetection code, see [here](exp/doc/code_modify.md), otherwise do following download and setting command is enough.
 
 ```shell script
 git clone https://github.com/ucas-vg/TOV_mmdetection # from github
