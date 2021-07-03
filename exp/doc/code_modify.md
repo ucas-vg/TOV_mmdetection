@@ -1,6 +1,6 @@
-### 添加修改代码，支持TinyPerson/visDronePerson Dataset
+### SUpport TinyPerson/visDronePerson Dataset
 
-代码相关文件的修改与作用如下
+code modified as following:
 
 function | file | necessary
 ---| --- | ---
@@ -8,9 +8,9 @@ coco format annotation + ignore dataset support | + mmdet\datasets\cocofmt.py<br
 ScaleFactor=1.0 for ReSize; | > mmdet/datasets/pipelines/transforms.py:74,99,289| Y
 corner dataset support| > mmdet/datasets/pipelines/loading.py:64 | X
 auto cut image and merge result durring inference| + mmdet/datasets/pipelines/rtest_time_aug.py<br/> > mmdet/datasets/pipelines/__init__.py| X
-- |> mmdet/core/bbox/transforms.py:bbox_mapping,bbox_mapping_back<br/> > mmdet/models/dense_heads/dense_test_mixins.py:192<br/>mmdet/core/post_processing/merge_augs.py:69,102|
-- |> mmdet/models/detectors/two_stage.py:aug_test+tile_aug_test|
-- | > mmdet/models/roi_heads/test_mixins.py:168,323|
+_ |> mmdet/core/bbox/transforms.py:bbox_mapping,bbox_mapping_back<br/> > mmdet/models/dense_heads/dense_test_mixins.py:192<br/>mmdet/core/post_processing/merge_augs.py:69,102|
+_ |> mmdet/models/detectors/two_stage.py:aug_test+tile_aug_test|
+_ | > mmdet/models/roi_heads/test_mixins.py:168,323|
 do final test| > do_final_eval：mmdet/core/evaluation/eval_hooks.py:10,40 | X
 Scale Match| + mmdet/core/bbox/coder/bouding_box.py<br/>+ mmdet/datasets/pipelines/scale_match.py<br/> > mmdet/datasets/pipelines/__init__.py| X
 stop while nan| > mmdet/apis/train.py:165,174;<br/> >${config}.py:add check=dict(stop_while_nan=True) | X
