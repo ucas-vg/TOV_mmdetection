@@ -33,11 +33,12 @@ conda install scikit-image
 #### download and project setting
 
 ```shell script
-
-git clone https://gitee.com/ucas-vg/TOV_mmdetection # git clone https://github.com/ucas-vg/TOV_mmdetection
+git clone https://github.com/ucas-vg/TOV_mmdetection # from github
+# git clone https://gitee.com/ucas-vg/TOV_mmdetection  # from gitee
 cd TOV_mmdetection
 # download code for evaluation
-git clone https://gitee.com/ucas-vg/huicv # git clone https://github.com/yinglang/huicv/
+git clone https://github.com/yinglang/huicv/  # from github
+# git clone https://gitee.com/ucas-vg/huicv  # from gitee
 
 # install mmdetection
 pip uninstall pycocotools   # sometimes need to source deactivate before, for 
