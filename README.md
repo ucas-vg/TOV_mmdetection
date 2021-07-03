@@ -58,7 +58,11 @@ ln -s ${Path_Of_COCO} data/coco
 #### download project
 
 ```shell script
-git clone git@github.com:ucas-vg/TOV_mmdetection.git --recursive
+
+git clone https://gitee.com/ucas-vg/TOV_mmdetection # git clone https://github.com/ucas-vg/TOV_mmdetection
+cd TOV_mmdetection
+# download code for evaluation
+git clone https://gitee.com/ucas-vg/huicv # git clone https://github.com/yinglang/huicv/
 ```
 
 # Experiment
