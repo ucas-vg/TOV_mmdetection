@@ -1,3 +1,3 @@
 [submodule "huicv"]
 	path = huicv
-	url = git@github.com:yinglang/huicv.git
+	url = https://github.com/yinglang/huicv
