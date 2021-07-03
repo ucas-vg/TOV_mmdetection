@@ -13,7 +13,7 @@ TODO list:
 
 # Prerequisites
 
-### [install mmdetection](./docs/install.md>)
+### [install environment](./docs/install.md>)
 ```
 conda create -n open-mmlab python=3.7 -y
 conda activate open-mmlab
@@ -22,11 +22,6 @@ conda install -c pytorch pytorch torchvision -y
 # conda install -c pytorch pytorch=1.5.0 cudatoolkit=10.2 torchvision -y
 # install the latest mmcv
 pip install mmcv-full --user
-# install mmdetection
-
-pip uninstall pycocotools   # sometimes need to source deactivate before, for 
-pip install -r requirements/build.txt
-pip install -v -e . --user  # or try "python setup.py develop" if get still got pycocotools error
 ```
 
 ```
@@ -34,6 +29,21 @@ conda install scikit-image
 ```
 
 [note]: if your need to modified from origin mmdetection code, see [here](exp/doc/code_modify.md), otherwise do not need any other modified.
+
+#### download and project setting
+
+```shell script
+
+git clone https://gitee.com/ucas-vg/TOV_mmdetection # git clone https://github.com/ucas-vg/TOV_mmdetection
+cd TOV_mmdetection
+# download code for evaluation
+git clone https://gitee.com/ucas-vg/huicv # git clone https://github.com/yinglang/huicv/
+
+# install mmdetection
+pip uninstall pycocotools   # sometimes need to source deactivate before, for 
+pip install -r requirements/build.txt
+pip install -v -e . --user  # or try "python setup.py develop" if get still got pycocotools error
+```
 
 ### prepare dataset
 #### TinyPerson
@@ -52,17 +62,6 @@ tar -zxvf data/tiny_set/mini_annotations.tar.gz && mv mini_annotations data/tiny
 
 ```
 ln -s ${Path_Of_COCO} data/coco
-```
-
-
-#### download project
-
-```shell script
-
-git clone https://gitee.com/ucas-vg/TOV_mmdetection # git clone https://github.com/ucas-vg/TOV_mmdetection
-cd TOV_mmdetection
-# download code for evaluation
-git clone https://gitee.com/ucas-vg/huicv # git clone https://github.com/yinglang/huicv/
 ```
 
 # Experiment
