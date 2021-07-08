@@ -87,7 +87,7 @@ model = dict(
     ...
     test_cfg=dict(
         nms_pre=1000,     # or try other setting
-        max_per_img=300  # or set as -1 or other
+        max_per_img=500  # or set as -1 or other
     ...
 )
 ```
