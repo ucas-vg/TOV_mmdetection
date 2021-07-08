@@ -2,6 +2,8 @@
 
 There are two policy to crop image and merge results, taking TinyPerson as an example.
 
+The results of the two ways may be little different because of different crop policy and max_per_img.
+
 ## way1: using origin annotation(run-time crop)
 
 - crop image while loading image.
