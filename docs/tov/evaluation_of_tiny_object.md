@@ -2,7 +2,7 @@
 
 There are two policy to crop image and merge results, taking TinyPerson as an example.
 
-## way1: using origin annotation
+## way1: using origin annotation(run-time crop)
 
 - crop image while loading image.
 - merge results while inference.
@@ -44,7 +44,7 @@ model = dict(
 )
 ```
 
-## way2: using corner annotation
+## way2: using corner annotation(offline crop)
 
 - using corner annotation. (same as cutting image before evaluation)
 - merge result after inference
