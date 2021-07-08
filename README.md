@@ -31,7 +31,8 @@ conda install scikit-image
 #### download and project setting
 
 
-[note]: if your need to modified from origin mmdetection code, see [here](docs/code_modify.md), otherwise do following download and setting command is enough.
+- [note]: if your need to modified from origin mmdetection code, see [here](docs/tov/code_modify.md), otherwise do not need any other modified.
+- [note]: for more about evaluation, see [evaluation_of_tiny_object.md](docs/tov/evaluation_of_tiny_object.md)
 
 ```shell script
 git clone https://github.com/ucas-vg/TOV_mmdetection # from github

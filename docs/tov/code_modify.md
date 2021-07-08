@@ -18,7 +18,7 @@ stop while nan| > mmdet/apis/train.py:165,174;<br/> >${config}.py:add check=dict
 - filte out 'ignore' bbox while load annotation;
 - TinyPerson evaluation support;
 - Location evaluation support;
-- 
+
 ```
 evaluate function invoke graph
 
