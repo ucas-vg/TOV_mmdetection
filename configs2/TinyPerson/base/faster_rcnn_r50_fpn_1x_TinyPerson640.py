@@ -83,7 +83,7 @@ model = dict(
             nms_pre=2000,
             nms_post=1000,
             max_num=1000,
-            nms_thr=0.7,
+            nms=dict(type='nms', iou_threshold=0.7),
             min_bbox_size=0),
         rcnn=dict(
             assigner=dict(
@@ -120,4 +120,4 @@ model = dict(
     )
 )
 
-evaluation = dict(do_final_eval=True)
+# evaluation = dict(do_final_eval=True)

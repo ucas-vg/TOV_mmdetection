@@ -44,7 +44,7 @@ def generate_corner_json_file_if_not_exist(ann_file, data_root, corner_kwargs):
 
 
 def generate_pesudo_bbox_for_noise_data(ann_file, data_root, noise_kwargs):
-    from .noise_data_utils import get_new_json_file_path, generate_pseudo_bbox_for_point
+    from huicv.coarse_utils.noise_data_utils import get_new_json_file_path, generate_pseudo_bbox_for_point
     # ann_file, _ = get_new_json_file_path(ann_file, data_root, 'noise', 'noisept')
     # assert osp.exists(ann_file), "{} not exist.".format(ann_file)
     ori_ann_file = ann_file
@@ -71,6 +71,7 @@ class CocoFmtDataset(CocoDataset):
                  corner_kwargs=None,
                  train_ignore_as_bg=True,
                  noise_kwargs=None,
+                 merge_after_infer_kwargs=None,
                  **kwargs):
         # add by hui, if there is not corner dataset, create one
         if corner_kwargs is not None:
@@ -89,6 +90,7 @@ class CocoFmtDataset(CocoDataset):
             print("load noise dataset json file from {}".format(ann_file))
 
         self.train_ignore_as_bg = train_ignore_as_bg
+        self.merge_after_infer_kwargs = merge_after_infer_kwargs
 
         super(CocoFmtDataset, self).__init__(
             ann_file,
@@ -268,7 +270,20 @@ class CocoFmtDataset(CocoDataset):
             if metric not in result_files:
                 raise KeyError(f'{metric} is not in results')
             try:
+                # add by hui ######################################################
+                merge_after_infer_kwargs = self.merge_after_infer_kwargs
+                if merge_after_infer_kwargs is not None:  # merge result before eval
+                    from huicv.evaluation.evaluate_tiny import merge_det_result
+                    merge_gt_file = merge_after_infer_kwargs.pop("merge_gt_file")
+                    merge_nms_th = merge_after_infer_kwargs.get("merge_nms_th", 0.5)
+                    cocoGt, result_files[metric] = merge_det_result(result_files[metric], self.ann_file, merge_gt_file,
+                                                                    merge_nms_th)
+                ###################################################################
                 predictions = mmcv.load(result_files[metric])
+                # add by hui ######################################################
+                import shutil
+                shutil.copy(result_files[metric], './exp/latest_result.json')
+                ######################################################
                 if iou_type == 'segm':
                     # Refer to https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/coco.py#L331  # noqa
                     # When evaluating mask AP, if the results contain bbox,
@@ -312,7 +327,7 @@ class CocoFmtDataset(CocoDataset):
             if 'maxDets' not in param_kwargs: cocoEval.params.maxDets = list(proposal_nums)
             if 'iouThrs' not in param_kwargs: cocoEval.params.iouThrs = np.array(iou_thrs)
             print(cocoEval.__dict__)
-            print(cocoEval.params.__dict__)
+            print({k:v for k, v in cocoEval.params.__dict__.items() if k not in ['imgIds']})
             ###################################################################
 
             # mapping of cocoEval.stats

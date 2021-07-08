@@ -1,6 +1,6 @@
 
 # exp1.1: Faster-FPN
-export GPU=4 && LR=0.02 && CUDA_VISIBLE_DEVICES=4,5,6,7 PORT=10000 tools/dist_train.sh configs2/TinyPerson/base/faster_rcnn_r50_fpn_1x_TinyPerson640.py $GPU \
+export GPU=4 && LR=0.02 && CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=10001 tools/dist_train.sh configs2/TinyPerson/base/faster_rcnn_r50_fpn_1x_TinyPerson640.py $GPU \
   --work-dir ../TOV_mmdetection_cache/work_dir/TinyPerson/Base/faster_rcnn_r50_fpn_1x_TinyPerson640/old640x512_lr${LR}_1x_${GPU}g/ \
   --cfg-options optimizer.lr=${LR}
 
@@ -10,12 +10,14 @@ export GPU=2 && LR=0.01 && CUDA_VISIBLE_DEVICES=0,1 PORT=10000 tools/dist_train.
   --cfg-options optimizer.lr=${LR}
 
 # exp2.1: adap RetinaNet
-export GPU=1 && LR=0.005 && CUDA_VISIBLE_DEVICES=4 PORT=10000 tools/dist_train.sh configs2/TinyPerson/base/retinanet_r50_fpns4_1x_TinyPerson640.py $GPU \
-  --work-dir ../TOV_mmdetection_cache/work_dir/TinyPerson/Base/retinanet_r50_fpns4_1x_TinyPerson640/old640x512_lr${LR}_1x_${GPU}g/ \
+export GPU=1 && LR=0.005 && CONFIG="retinanet_r50_fpns4_1x_TinyPerson640" && CUDA_VISIBLE_DEVICES=0 PORT=10001 \
+  tools/dist_train.sh configs2/TinyPerson/base/${CONFIG}.py $GPU \
+  --work-dir ../TOV_mmdetection_cache/work_dir/TinyPerson/Base/${CONFIG}/old640x512_lr${LR}_1x_${GPU}g/ \
   --cfg-options optimizer.lr=${LR}
 # # exp2.2: 4gpu clip grad
-export GPU=4 && LR=0.02 && CUDA_VISIBLE_DEVICES=4,5,6,7 PORT=10000 tools/dist_train.sh configs2/TinyPerson/base/retinanet_r50_fpns4_1x_TinyPerson640_clipg.py $GPU \
-  --work-dir ../TOV_mmdetection_cache/work_dir/TinyPerson/Base/retinanet_r50_fpns4_1x_TinyPerson640/old640x512_lr${LR}_1x_clipg_${GPU}g/  \
+export GPU=4 && LR=0.02 && CONFIG="retinanet_r50_fpns4_1x_TinyPerson640"&& CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=10001 \
+  tools/dist_train.sh configs2/TinyPerson/base/${CONFIG}.py $GPU \
+  --work-dir ../TOV_mmdetection_cache/work_dir/TinyPerson/Base/${CONFIG}/old640x512_lr${LR}_1x_clipg_${GPU}g/  \
   --cfg-options optimizer.lr=${LR}
 # # exp2.3: 2gpu clip grad
 export GPU=2 && LR=0.01 && CUDA_VISIBLE_DEVICES=0,1 PORT=10000 tools/dist_train.sh configs2/TinyPerson/base/retinanet_r50_fpns4_1x_TinyPerson640_clipg.py $GPU \
@@ -109,3 +111,11 @@ CUDA_VISIBLE_DEVICES=0,1 PORT=10001 tools/dist_train.sh configs2/TinyPerson/scal
 export GPU=2 && LR=0.01 && CUDA_VISIBLE_DEVICES=0,1 PORT=10000 tools/dist_train.sh configs2/TinyPerson/base/retinanet_r50_fpns4_1x_TinyPerson640_clipg.py $GPU \
   --work-dir ../TOV_mmdetection_cache/work_dir/TinyPerson/scale_match/retinanet_r50_fpns4_1x_TinyPerson640_clipg/cocomsm_old640x512_lr${LR}_1x_${GPU}g/ \
   --cfg-options optimizer.lr=${LR} load_from=${COCO_WORK_DIR}/latest.pth
+
+
+
+# exp6.1 Adap FCOS
+export GPU=2 && LR=0.01 && CONFIG="fcos_standard_r50_caffe_fpns4_gn-head_1x_TinyPerson640" && CUDA_VISIBLE_DEVICES=0,1 PORT=10001 \
+  tools/dist_train.sh configs2/TinyPerson/base/${CONFIG}.py $GPU \
+  --work-dir ../TOV_mmdetection_cache/work_dir/TinyPerson/Base/${CONFIG}/old640x512_lr${LR}_1x_${GPU}g/ \
+  --cfg-options optimizer.lr=${LR}

@@ -31,7 +31,7 @@ conda install scikit-image
 #### download and project setting
 
 
-[note]: if your need to modified from origin mmdetection code, see [here](exp/doc/code_modify.md), otherwise do following download and setting command is enough.
+[note]: if your need to modified from origin mmdetection code, see [here](docs/code_modify.md), otherwise do following download and setting command is enough.
 
 ```shell script
 git clone https://github.com/ucas-vg/TOV_mmdetection # from github
@@ -69,7 +69,7 @@ ln -s ${Path_Of_COCO} data/coco
 # Experiment
 ## TinyPerson
 
-For running more experiment, to see [bash script](exp/sh/Baseline_TinyPerson.sh)
+For running more experiment, to see [bash script](configs2/TinyPerson/base/Baseline_TinyPerson.sh)
 
 ```shell script
 # exp1.2: Faster-FPN, 2GPU
@@ -96,15 +96,16 @@ export GPU=2 && LR=0.01 && CUDA_VISIBLE_DEVICES=0,1 PORT=10000 tools/dist_train.
 
 detector | type | $AP_{50}^{tiny}$| script | COCO200 val $mmap$ | coco batch/lr
 --- | --- | ---| ---| ---| ---
-Faster-FPN | - |  47.90 | exp/sh/Baseline_TinyPerson.sh:exp1.2 | - | -
-Faster-FPN | SM | 50.06 | exp/sh/Baseline_TinyPerson.sh:exp4.0 | 18.9 | 8x2/0.01
-Faster-FPN | SM | 49.53 | exp/sh/Baseline_TinyPerson.sh:exp4.1 | 18.5 | 4x2/0.01
-Faster-FPN | MSM | 49.39 | exp/sh/Baseline_TinyPerson.sh:exp4.2 | 12.1 | 4x2/0.01
+Faster-FPN | - |  ~~47.90~~<br/>49.81 | exp/Baseline_TinyPerson.sh:exp1.2 | - | -
+Faster-FPN | SM | ~~50.06~~<br/> | exp/Baseline_TinyPerson.sh:exp4.0 | 18.9 | 8x2/0.01
+Faster-FPN | SM | ~~49.53~~<br/> | exp/Baseline_TinyPerson.sh:exp4.1 | 18.5 | 4x2/0.01
+Faster-FPN | MSM | ~~49.39~~<br/> | exp/Baseline_TinyPerson.sh:exp4.2 | 12.1 | 4x2/0.01
 --| --| --
-Adap RetainaNet-c | - | 43.66 | exp/sh/Baseline_TinyPerson.sh:exp2.3 | - | -
-Adap RetainaNet-c | SM | 50.07 | exp/sh/Baseline_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
-Adap RetainaNet-c | MSM | 48.39 | exp/sh/Baseline_TinyPerson.sh:exp5.2 | 12.9 | 4x2/0.01
+Adap RetainaNet-c | -   | ~~43.66~~<br/> | exp/Baseline_TinyPerson.sh:exp2.3 | - | -
+Adap RetainaNet-c | SM  | ~~50.07~~<br/> | exp/Baseline_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
+Adap RetainaNet-c | MSM | ~~48.39~~<br/> | exp/Baseline_TinyPerson.sh:exp5.2 | 12.9 | 4x2/0.01
 
-for more experiment, to see [TinyPerson experiment](exp/doc/TinyPerson.md)
-for detail of scale match, to see [TinyPerson Scale Match](exp/doc/TinyPerson/ScaleMatch.md)
+for more experiment, to see [TinyPerson experiment](configs2/TinyPerson/TinyPerson.md)
+for detail of scale match, to see [TinyPerson Scale Match](configs2/TinyPerson/scale_match/ScaleMatch.md)
+
 
