@@ -95,6 +95,8 @@ export GPU=2 && LR=0.01 && CUDA_VISIBLE_DEVICES=0,1 PORT=10000 tools/dist_train.
 - Adap RetainaNet-c means use clip grad while training.
 - COCO val $mmap$ only use for debug, cause val also add to train while sm/msm coco to TinyPerson
 
+the ~~result~~ is with max_det=200, it not right because there maybe exists 800+ objects in a single object, so we re-evaluate(not finished) with max_det=1000 and got following result
+
 detector | type | $AP_{50}^{tiny}$| script | COCO200 val $mmap$ | coco batch/lr
 --- | --- | ---| ---| ---| ---
 Faster-FPN | - |  ~~47.90~~<br/>49.81 | exp/Baseline_TinyPerson.sh:exp1.2 | - | -
