@@ -55,12 +55,12 @@ torch configs2/TinyPerson/scale_match/retinanet_r50_fpns4_1x_coco_msm_tinyperson
 
 detector | type | $AP_{50}^{tiny}$| script | COCO200 val $mmap$ | coco batch/lr
 --- | --- | ---| ---| ---| ---
-Faster-FPN | - |  ~~47.90~~<br/>49.81 | exp/Baseline_TinyPerson.sh:exp1.2 | - | -
-Faster-FPN | SM | ~~50.06~~<br/> | exp/Baseline_TinyPerson.sh:exp4.0 | 18.9 | 8x2/0.01
-Faster-FPN | SM | ~~49.53~~<br/> | exp/Baseline_TinyPerson.sh:exp4.1 | 18.5 | 4x2/0.01
-Faster-FPN | MSM | ~~49.39~~<br/> | exp/Baseline_TinyPerson.sh:exp4.2 | 12.1 | 4x2/0.01
+Faster-FPN | - |  ~~47.90~~<br/>49.81 | configs2/TinyPerson/base/Baseline_TinyPerson.sh:exp1.2 | - | -
+Faster-FPN | SM | ~~50.06~~<br/>50.85 | ScaleMatch_TinyPerson.sh:exp4.0 | 18.9 | 8x2/0.01
+Faster-FPN | SM | ~~49.53~~<br/>50.30 | ScaleMatch_TinyPerson.sh:exp4.1 | 18.5 | 4x2/0.01
+Faster-FPN | MSM | ~~49.39~~<br/>50.18 | ScaleMatch_TinyPerson.sh:exp4.2 | 12.1 | 4x2/0.01
 --| --| --
-Adap RetainaNet-c | -   | ~~43.66~~<br/> | exp/Baseline_TinyPerson.sh:exp2.3 | - | -
-Adap RetainaNet-c | SM  | ~~50.07~~<br/> | exp/Baseline_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
-Adap RetainaNet-c | MSM | ~~48.39~~<br/> | exp/Baseline_TinyPerson.sh:exp5.2 | 12.9 | 4x2/0.01
+Adap RetainaNet-c | -   | ~~43.66~~<br/>45.22 | configs2/TinyPerson/base/Baseline_TinyPerson.sh:exp2.3 | - | -
+Adap RetainaNet-c | SM  | ~~50.07~~<br/>51.78 | ScaleMatch_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
+Adap RetainaNet-c | MSM | ~~48.39~~<br/>50.00 | ScaleMatch_TinyPerson.sh:exp5.2 | 12.9 | 4x2/0.01
 

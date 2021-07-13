@@ -274,7 +274,7 @@ class CocoFmtDataset(CocoDataset):
                 merge_after_infer_kwargs = self.merge_after_infer_kwargs
                 if merge_after_infer_kwargs is not None:  # merge result before eval
                     from huicv.evaluation.evaluate_tiny import merge_det_result
-                    merge_gt_file = merge_after_infer_kwargs.pop("merge_gt_file")
+                    merge_gt_file = merge_after_infer_kwargs.get("merge_gt_file")
                     merge_nms_th = merge_after_infer_kwargs.get("merge_nms_th", 0.5)
                     cocoGt, result_files[metric] = merge_det_result(result_files[metric], self.ann_file, merge_gt_file,
                                                                     merge_nms_th)
