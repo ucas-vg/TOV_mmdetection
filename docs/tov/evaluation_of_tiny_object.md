@@ -100,6 +100,9 @@ model = dict(
 )
 ```
 
+- if you thought the evaluation is too much time-consuming, you can given a smaller *max_per_img*, 
+such as 200 instead of 500. But it may get a bit lower evaluation result.
+
 ## evaluate on result file
 
 For both two way, if you got an result file, and only need to evaluate on such file, you can run
