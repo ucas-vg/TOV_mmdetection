@@ -51,6 +51,12 @@ model = dict(
 - using corner annotation. (same as cutting image before evaluation)
 - merge result after inference
 
+to use such evaluation, need install mini_maskrcnn_benchmark
+```
+cd huicv
+bash install.sh
+```
+
 config set as following
 
 ```python
