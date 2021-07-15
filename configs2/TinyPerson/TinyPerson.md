@@ -52,12 +52,18 @@ Adap FCOS | 2 | 47.61(1) | base/Baseline_TinyPerson.sh:exp6.1
 - base/Baseline_TinyPerson.sh:exp5.1
 - detector: Adap FCOS
 
-runtime cut | nms_pre | max_per_img | max_det|$AP_{50}^{tiny}$
+run-time crop | nms_pre | max_per_img | max_det|$AP_{50}^{tiny}$
  --- | --- | ---| --- | ---
  Y | 1000 | 100  | 200 | 42.93
  Y | 5000 | 1000 | 200 | 46.11
  Y | 2000 | 1000 | 200 | 46.11
  Y | 1000 | 1000 | 200 | 46.11
  Y | 2000 | 1000 | 1000 | 47.61
+ N | 1000/crop | 100/crop | 200 | 45.68
+ 
+run-time crop | nms_pre | max_per_img | max_det|$AP_{50}^{tiny}$
+ --- | --- | ---| --- | ---
+ Y | 2000 | 1000 | 1000 | 47.61
+ N | 1000/crop | 500/crop | 1000| 46.86
  N | 1000/crop | 100/crop | 200 | 45.68
  
