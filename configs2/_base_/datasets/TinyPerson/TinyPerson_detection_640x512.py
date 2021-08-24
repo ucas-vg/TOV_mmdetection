@@ -45,8 +45,12 @@ data = dict(
     ),
     val=dict(
         type=dataset_type,
-        # ann_file=data_root + 'annotations/corner/task/tiny_set_test_sw640_sh512_all.json',
         ann_file=data_root + 'mini_annotations/tiny_set_test_all.json',
+        # ann_file=data_root + 'annotations/corner/task/tiny_set_test_sw640_sh512_all.json',
+        # merge_after_infer_kwargs=dict(
+        #     merge_gt_file=data_root + 'mini_annotations/tiny_set_test_all.json',
+        #     merge_nms_th=0.5
+        # ),
         img_prefix=data_root + 'test/',
         pipeline=test_pipeline),
     test=dict(
@@ -64,9 +68,9 @@ check = dict(stop_while_nan=True)  # add by hui
 
 # tiny bbox eval with IOD
 evaluation = dict(
-    interval=4, metric='bbox',
+    interval=3, metric='bbox',
     iou_thrs=[0.25, 0.5, 0.75],  # set None mean use 0.5:1.0::0.05
-    proposal_nums=[200],
+    proposal_nums=[1000],
     cocofmt_kwargs=dict(
         ignore_uncertain=True,
         use_ignore_attr=True,
