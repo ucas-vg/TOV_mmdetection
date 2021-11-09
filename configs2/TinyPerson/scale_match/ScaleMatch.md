@@ -64,3 +64,6 @@ Adap RetainaNet-c | -   | ~~43.66~~<br/>45.22 | configs2/TinyPerson/base/Baselin
 Adap RetainaNet-c | SM  | ~~50.07~~<br/>51.78 | ScaleMatch_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
 Adap RetainaNet-c | MSM | ~~48.39~~<br/>50.00 | ScaleMatch_TinyPerson.sh:exp5.2 | 12.9 | 4x2/0.01
 
+the trained weight can be found in:
+
+[Baidu Yun](https://pan.baidu.com/s/1Y457_do4rGJW3ZvXXJolAA)(38u3)
