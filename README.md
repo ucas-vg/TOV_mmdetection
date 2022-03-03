@@ -19,7 +19,7 @@ TODO list:
 - [ ] add point localization task for COCO -->
 
 
-## Prerequisites
+## Install
 
 ### [install environment](./docs/install.md>)
 ```
