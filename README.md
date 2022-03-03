@@ -2,8 +2,8 @@
 TOV mmdetection is an open source toolbox for object localization and detection tasks on top of mmdetection. 
 <!-- To date, TOV mmdetection implements the following algorithms: -->
 
-* [Tiny Object Detection](docs/tov/)
-* [Coarse Point Object Localization](docs/)
+* [Scale Match for TinyPerson Detection (WACV2020)](docs/tov/)
+* [Object Localization under Single Coarse Point Supervision (CVPR2022)](docs/)
 
 # Introduction
 
