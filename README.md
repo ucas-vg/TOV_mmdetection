@@ -1,3 +1,10 @@
+# TOV mmdetection
+TOV mmdetection is an open source toolbox for object localization and detection tasks on top of mmdetection. 
+<!-- To date, TOV mmdetection implements the following algorithms: -->
+
+* [Tiny Object Detection](docs/tov/)
+* [Coarse Point Object Localization](docs/)
+
 # Introduction
 
 TODO list:
@@ -11,13 +18,6 @@ TODO list:
 - [ ] add point localization task for visDronePerson
 - [ ] add point localization task for COCO -->
 
-
-# TOV mmdetection
-TOV mmdetection is an open source toolbox for object localization and detection tasks on top of mmdetection. 
-<!-- To date, TOV mmdetection implements the following algorithms: -->
-
-* [Tiny Object Detection](docs/tov/)
-* [Coarse Point Object Localization](docs/)
 
 ## Prerequisites
 
