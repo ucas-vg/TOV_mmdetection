@@ -1,5 +1,9 @@
 # Scale Match for TinyPerson Detection (WACV2020)
 
+## Prerequisites
+### Install enviroment
+As [Install](../../README.md) said.
+
 ### prepare dataset
 #### TinyPerson
 
@@ -26,10 +30,10 @@ For more details about TinyPerson dataset, please see [Dataset](https://github.c
 ln -s ${Path_Of_COCO} data/coco
 ```
 
-# Experiment
-## TinyPerson
+## Experiment
+### TinyPerson
 
-For running more experiment, to see [bash script](configs2/TinyPerson/base/Baseline_TinyPerson.sh)
+For running more experiment, to see [bash script](../../configs2/TinyPerson/base/Baseline_TinyPerson.sh)
 
 ```shell script
 # exp1.2: Faster-FPN, 2GPU
@@ -67,11 +71,11 @@ Adap RetainaNet-c | -   | ~~43.66~~<br/>45.22 | configs2/TinyPerson/base/Baselin
 Adap RetainaNet-c | SM  | ~~50.07~~<br/>51.78 | ScaleMatch_TinyPerson.sh:exp5.1 | 19.6 | 4x2/0.01
 Adap RetainaNet-c | MSM | ~~48.39~~<br/>50.00 | ScaleMatch_TinyPerson.sh:exp5.2 | 12.9 | 4x2/0.01
 
-for more experiment, to see [TinyPerson experiment](configs2/TinyPerson/TinyPerson.md)
-for detail of scale match, to see [TinyPerson Scale Match](configs2/TinyPerson/scale_match/ScaleMatch.md)
+for more experiment, to see [TinyPerson experiment](../../configs2/TinyPerson/TinyPerson.md)
+for detail of scale match, to see [TinyPerson Scale Match](../../configs2/TinyPerson/scale_match/ScaleMatch.md)
 
 
-# Citation
+## Citation
 
 If you use the code and benchmark in your research, please cite:
 ```
